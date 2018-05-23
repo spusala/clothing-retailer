@@ -18,6 +18,7 @@ export class RetailerForm extends Component {
     }
 
     addToCart(item){
+        //The item will be added to the cart and stock will be decremented by one item
         if(item.stock > 0) {
             item.stock--;
             this.setState({
@@ -30,11 +31,10 @@ export class RetailerForm extends Component {
     }
 
     addItemToStock(item){
+        // TODO:Add the item back to the stock when user removed from the cart. We need to set the state with the new list created with the stock.
         this.state.products.map(product => {
             if(product.name === item.name){
-                console.log(item.name);
                 product.stock++;
-                console.log(product);
             }
         });
     }
